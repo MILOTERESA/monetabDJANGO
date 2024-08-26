@@ -1,0 +1,329 @@
+{% load static %}
+<!doctype html>
+		<html>
+		<head>
+		<meta charset="UTF-8">
+		<title>Bienvenue</title>
+
+        <script language="javascript">
+            function confirmation(){
+                
+                return confirm("Attention!!! voulez-vous supprimer cet élève?");
+                
+            }
+            
+            
+        </script>
+            
+
+			 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+			<!-- font awesome cdn link -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+           
+	<!-- custom css file link -->
+	
+	<link rel="stylesheet" href={% static "style.css" %}>
+								
+</head>
+
+<style>
+	
+	
+
+
+    .table_responsive {
+        max-width: 200rem;
+        background-color: #efefef33;
+        padding: 100px;
+        padding-left: 250px;
+        overflow: auto;
+        margin: auto;
+        border-radius: 4px;
+    }
+
+    .table_responsive p {
+       
+       color: #520bf6d4;
+      text-align: right;
+       align-items: flex-start;
+      height: 30px;
+     
+       
+    }
+    
+    .table_responsive a{
+    color: #bf0bf6d4;
+    text-decoration: none;
+}
+
+.table_responsive a:hover{
+    color:#88982b;
+  
+   
+}
+    
+    table {
+        width: 100%;
+        font-size: 13px;
+        color: #444;
+        white-space: nowrap;
+        border-collapse: collapse;
+    }
+    
+    table>thead {
+        background-color: #00bcd4;
+        color: #fff;
+    }
+    
+    table>thead th {
+    padding: 15px;
+}
+
+table th,
+table td {
+    border: 1px solid #00000017;
+    padding: 10px 15px;
+}
+
+table>tbody>tr>td>img {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 2px 6px #0003;
+}
+
+
+.action_btn {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.action_btn>a {
+    text-decoration: none;
+    color: #444;
+    background: #fff;
+    border: 1px solid;
+    display: inline-block;
+    padding: 7px 20px;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: 0.3s ease-in-out;
+}
+
+.action_btn>a:nth-child(1) {
+    border-color: #26a69a;
+}
+
+.action_btn>a:nth-child(2) {
+    border-color: orange;
+}
+
+.action_btn>a:hover {
+    box-shadow: 0 3px 8px #0003;
+}
+
+
+table>tbody>tr {
+    background-color: #fff;
+    transition: 0.3s ease-in-out;
+}
+
+
+table>tbody>tr:nth-child(even) {
+    background-color: rgb(238, 238, 238);
+}
+
+table>tbody>tr:hover{
+    filter: drop-shadow(0px 2px 6px #0002);
+}
+	
+        
+        </style>
+
+<body>
+    
+
+<section>
+<nav class="navbar">
+   
+    <img src={% static "image/logo.png" %} alt="">
+    <div class="profile">
+        <span class="fas fa-search"></span>
+      <p class="name1">Lorem ipsum </p>
+    </div>
+
+</nav> 
+
+</section>
+
+<!-- menu -->
+<section>
+
+    <input type="checkbox" id="toggle">
+    <label class="side-toggle" for="toggle"><span class="fas fa-bars"></span></label>
+    
+    
+    <div class="sidebar">
+        <div class="sidebar-menu">
+            <span class="fas fa-dashboard"></span>
+            <p><a href="{% url 'dashboard:dashboard' %}">Tableau de bord</a></p>
+           
+    
+        </div>
+    
+    <div class="sidebar-menu">
+        <span class="fas fa-users">
+    
+        </span>
+        
+        <p><a href="{% url 'eleve:eleve' %}">Elèves</a></p>
+    </div>
+    
+    <div class="sidebar-menu">
+    <span class="fas fa-chalkboard-teacher"></span>
+    <p><a href="{% url 'professeur:professeur' %}">Professeur</a></p>
+    </div>
+    
+    <div class="sidebar-menu">
+        <span class="fas fa-users"></span>
+        <p><a href="{% url 'utilisateur:utilisateur' %}">Utilisateur</a></p>
+    
+    </div>
+    
+    <div class="sidebar-menu">
+        <span class="fas fa-id-card"></span>
+        
+        <p><a href="{% url 'rapport:rapport' %}">rapport</a></p>
+       
+    
+    </div>
+    <div class="sidebar-menu">
+        <p><a href="{url 'login'}">Deconnexion</a></p><span class="fas fa-arrow-right"></span>
+    </div>
+    
+    </div>
+    
+    </section>
+
+
+
+
+
+
+
+
+<!-- A propos des articles ... section starts -->
+	
+
+<section>
+
+   
+    <div class="table_responsive">
+
+        <h1 class="heading">Les <span>professeurs</span> </h1>
+		<p> <a href="{% url 'professeur:ajouter_professeur' %}">Ajouter Professeur <i class="fas fa-add"></i></a></p>
+        <table>
+        
+    
+    <table align='center' border='2' width='50%'>
+          <thead>
+        <tr>
+        <th>NOM</th>
+        <th>PRENOM</th>
+        <th>MATIERE</th>
+        <th>VACANT</th>
+        <th>AGE</th>
+        <th>TELEPHONE</th>
+        <th>VILLE</th>
+        <th>ACTIONS</th>
+         </thead>
+        </tr>
+        
+       
+           <tr>
+            <td>KOUAKOU</td> 
+            <td>AYA</td> 
+            <td>Mathématique</td>
+            <td>oui</td> 
+            <td>68</td> 
+            <td>03070809</td> 
+            <td>GAGNOA</td>
+           
+          
+            
+            <td>
+             <span class='action_btn'>
+                <a href=# style='text-decoration: none' onclick="return confirmation()">Supprimer</a>
+            
+            
+            <a href="{% url 'professeur:modifier_professeur' %}" style='text-decoration: none'>Modifier</a>
+            </span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>KAMAGATE</td> 
+            <td>AWA</td> 
+            <td>Physique-chimie</td>
+            <td>non</td> 
+            <td>35</td> 
+            <td>0934567893</td> 
+            <td>Abidjan</td>
+            
+            <td>
+             <span class='action_btn'>
+            <a href=# style='text-decoration: none' onclick="return confirmation()">Supprimer</a>
+             
+
+            
+            <a href="{% url 'professeur:modifier_professeur' %}" style='text-decoration: none'>Modifier</a>
+            </span>
+            </td>
+        </tr>
+        
+    </table>
+            
+            
+    
+        
+        
+    
+      </tbody>
+       
+      </div>
+            
+         
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<script src={% static "js/code.js" %}></script>
+	
+	
+	
+	
+	
+
+</body>
+</html>
